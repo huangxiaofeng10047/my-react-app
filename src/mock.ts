@@ -4,7 +4,7 @@ const domain = '/api/'
 
 // 模拟login接口
 Mock.mock(domain + 'login', function () {
-    let result = {
+    const result = {
         code: 200,
         message: 'OK',
         data: {

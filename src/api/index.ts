@@ -3,7 +3,7 @@ import { createHashHistory } from 'history'
 import { Modal } from 'antd'
 import { globalConfig } from '@/globalConfig'
 
-let history = createHashHistory()
+const history = createHashHistory()
 
 // 配合教程演示组件外路由跳转使用，无实际意义
 export const goto = (path) => {
@@ -42,7 +42,7 @@ export const apiReqs = {
         axios
             .post(API_DOMAIN + 'login', config.data)
             .then((res) => {
-                let result = res.data
+                const result = res.data
                 config.done && config.done(result)
                 if (result.code === API_CODE.OK) {
                     window.localStorage.setItem(
@@ -72,17 +72,18 @@ export const apiReqs = {
     // 管登出（登出后将登录信息从localStorage删除）
     signOut: () => {
         const { uid, token } = getLocalLoginInfo()
-        let headers = {
+        const headers = {
             loginUid: uid,
             'access-token': token,
         }
-        let axiosConfig = {
+        const axiosConfig = {
             method: 'post',
             url: API_DOMAIN + 'logout',
             headers,
         }
         axios(axiosConfig)
             .then((res) => {
+                console.log(res)
                 logout()
             })
             .catch(() => {
@@ -136,7 +137,7 @@ export function apiRequest(config) {
     config.method = config.method || 'post'
 
     // 封装header信息
-    let headers = {
+    const headers = {
         loginUid: loginInfo ? loginInfo.uid : null,
         'access-token': loginInfo ? loginInfo.token : null,
     }
@@ -155,7 +156,7 @@ export function apiRequest(config) {
     }
 
     // 组装axios数据
-    let axiosConfig = {
+    const axiosConfig = {
         method: config.method,
         url: config.url,
         headers,
@@ -171,7 +172,7 @@ export function apiRequest(config) {
     // 发起请求
     axios(axiosConfig)
         .then((res) => {
-            let result = res.data
+            const result = res.data
             config.done && config.done()
 
             if (result.code === API_CODE.ERR_LOGOUT) {
@@ -192,6 +193,8 @@ export function apiRequest(config) {
             // 如果接口不通或出现错误，则弹出Antd的Modal对话框
             Modal.error({
                 title: API_FAILED,
+                //add
+                content: err.message,
             })
             // 执行fail的回调
             config.fail && config.fail()

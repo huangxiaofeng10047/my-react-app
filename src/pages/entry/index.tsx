@@ -11,7 +11,7 @@ function Entry() {
 
     const globalTheme = useSelector((state) => state.theme)
          // Ant Design主题变量
-     let antdTheme = {
+     const antdTheme = {
          // 亮色/暗色配置
          algorithm: globalTheme.dark ? darkAlgorithm : defaultAlgorithm,
      }

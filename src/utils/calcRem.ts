@@ -32,7 +32,6 @@ interface IWindowObj extends Window {
     }
   
     function getFontSize() {
-      // @ts-ignore
       return parseFloat(windowObj.getComputedStyle(htmlDom)['font-size']);
     }
   
