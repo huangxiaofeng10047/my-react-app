@@ -70,8 +70,11 @@
     "vite-plugin-mock": "^3.0.0"
   },
   "lint-staged": {
-    "*.{md,js,ts,tsx,vue,scss}": "prettier --write --ignore-unknown",
-    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint --fix"
+    "**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
