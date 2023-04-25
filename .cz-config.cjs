@@ -1,50 +1,35 @@
 module.exports = {
-    types: [
-        {
-            value: 'feat',
-            name: 'feat: 新增一个功能',
-        },
-        {
-            value: 'fix',
-            name: 'fix: 修复一个Bug',
-        },
-        {
-            value: 'docs',
-            name: 'docs: 文档变更',
-        },
-        {
-            value: 'style',
-            name: 'style: 代码格式（不影响功能，例如空格、分号等格式修正）',
-        },
-        {
-            value: 'refactor',
-            name: 'refactor: 代码重构，注意和特性、修复区分开',
-        },
-        {
-            value: 'perf',
-            name: 'perf: 提升性能',
-        },
-        {
-            value: 'test',
-            name: 'test: 添加一个测试',
-        },
-        {
-            value: 'chore',
-            name: 'chore: 变更构建流程或辅助工具',
-        },
-    ],
-    appendIssueFromBranchName: true,
-    allowTicketNumber: false,
-    isTicketNumberRequired: true,
-    footerPrefix: 'JTFW-',
-    messages: {
-        type: '请选择提交类型:',
-        subject: '请输入提交信息:',
-        body: '请输入提交详细内容. 用 "|" 换行:\n',
-        footer: '请输入家服iwork编号:',
-        confirmCommit: '确定要执行上面的提交吗?',
+  types: [
+    { value: 'feature', name: 'feature:  增加新功能' },
+    { value: 'fix', name: 'fix:      修复bug' },
+    { value: 'bug', name: 'bug:      测试反馈bug列表中的bug号' },
+    { value: 'ui', name: 'ui:       更新UI' },
+    { value: 'docs', name: 'docs:     文档变更' },
+    { value: 'style', name: 'style:    代码格式(不影响代码运行的变动)' },
+    { value: 'perf', name: 'perf:     性能优化' },
+    {
+      value: 'refactor',
+      name: 'refactor: 重构(既不是增加feature，也不是修复bug)',
     },
-    allowCustomScopes: true, //
-    skipQuestions: ['scope', 'breaking'], // 想跳过的问题列表
-    subjectLimit: 100, // subject主题限制长度
+    { value: 'release', name: 'release:  发布' },
+    { value: 'deploy', name: 'deploy:   部署' },
+    { value: 'test', name: 'test:     增加测试' },
+    {
+      value: 'chore',
+      name: 'chore:    构建过程或辅助工具的变动(更改配置文件)',
+    },
+    { value: 'revert', name: 'revert:   回退' },
+    { value: 'build', name: 'build:    打包' },
+  ], // override the messages, defaults are as follows
+  messages: {
+    type: '请选择提交类型:',
+    customScope: '请输入您修改的范围(可选):',
+    subject: '请简要描述提交 message (必填):',
+    body: '请输入详细描述(可选):',
+    breaking: '是破坏性修改吗？(可选，默认N)',
+    footer: '关联关闭的issue(可选):',
+    confirmCommit: '确认使用以上信息提交吗？(yes/no)',
+  },
+  allowCustomScopes: true, //   allowBreakingChanges: ['feat', 'fix'], // 跳过哪些步骤 // skipQuestions: ['body', 'breaking'],
+  subjectLimit: 100,
 };
