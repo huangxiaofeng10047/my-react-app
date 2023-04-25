@@ -1,17 +1,17 @@
-import Mock from 'mockjs'
+import Mock from 'mockjs';
 
-const domain = '/api/'
+const domain = '/api/';
 
 // 模拟login接口
 Mock.mock(domain + 'login', function () {
-    const result = {
-        code: 200,
-        message: 'OK',
-        data: {
-            loginUid: 10000,
-            nickname: '兔子先生',
-            token: 'yyds2023',
-        },
-    }
-    return result
-})
+  const result = {
+    code: 200,
+    message: 'OK',
+    data: {
+      loginUid: 10000,
+      nickname: '兔子先生',
+      token: 'yyds2023',
+    },
+  };
+  return result;
+});

@@ -3,10 +3,10 @@
  */
 import { initRem } from '@/utils/calcRem';
 export const initialize = async () => {
-    // 初始化rem
-    initRem(window, document.documentElement);
-    window.calcRem(1080);
-    console.trace('rem初始化完成...');
-    return Promise.resolve(true);
+  // 初始化rem
+  initRem(window, document.documentElement);
+  window.calcRem(1080);
+  console.trace('rem初始化完成...');
+  return Promise.resolve(true);
 };
 //# sourceMappingURL=workflow.js.map

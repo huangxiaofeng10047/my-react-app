@@ -14,19 +14,21 @@ import { store } from '@/store';
 import { Provider } from 'react-redux';
 import './mock';
 // 初始化总线
-initialize().then(flat => {
-    if (!flat) {
-        Toast.show({
-            icon: 'fail',
-            content: '初始化失败'
-        });
-        return;
-    }
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<Provider store={store}>
-         <ConfigProvider locale={zhCN}>
-             <RouterProvider router={globalRouters}/>
-         </ConfigProvider>
-         </Provider>);
+initialize().then((flat) => {
+  if (!flat) {
+    Toast.show({
+      icon: 'fail',
+      content: '初始化失败',
+    });
+    return;
+  }
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <Provider store={store}>
+      <ConfigProvider locale={zhCN}>
+        <RouterProvider router={globalRouters} />
+      </ConfigProvider>
+    </Provider>
+  );
 });
 //# sourceMappingURL=main.jsx.map
